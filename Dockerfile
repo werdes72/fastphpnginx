@@ -12,10 +12,8 @@ RUN set -x \
         && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
         && composer global require hirak/prestissimo brianium/paratest \
         && mkdir ~/.ssh/ && echo "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config \
-        && echo "memory_limit = 256M" >> /usr/local/etc/php/php.ini \
+        && echo "memory_limit = 512M" >> /usr/local/etc/php/php.ini \
         && apt-get purge -y --auto-remove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* || true
 
 EXPOSE 80 9000
 WORKDIR /var/www
-
-STOPSIGNAL SIGTERM
