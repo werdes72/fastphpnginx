@@ -7,7 +7,7 @@ RUN set -x \
         && apt-get update \
         && apt-get install -y --no-install-recommends --no-install-suggests \
                 libicu-dev zlib1g-dev libzip-dev libpng-dev librabbitmq-dev default-mysql-client unzip git ssh nginx \
-                jpegoptim optipng pngquant gifsicle \
+                jpegoptim optipng pngquant gifsicle libmagickwand-dev \
         && docker-php-ext-configure intl \
         && docker-php-ext-configure calendar \
         && docker-php-ext-install intl zip gd bcmath sockets pdo_mysql calendar opcache mysqli \
