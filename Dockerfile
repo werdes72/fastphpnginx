@@ -7,7 +7,7 @@ RUN set -x \
         && apt-get update \
         && apt-get install -y --no-install-recommends --no-install-suggests \
                 libicu-dev zlib1g-dev libzip-dev libpng-dev librabbitmq-dev default-mysql-client unzip git ssh nginx \
-        && docker-php-ext-install intl zip gd bcmath sockets pdo_mysql calendar \
+        && docker-php-ext-install intl zip gd bcmath sockets pdo_mysql calendar opcache \
         && pecl install mongodb amqp && docker-php-ext-enable mongodb amqp \
         && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
         && composer global require hirak/prestissimo brianium/paratest \
