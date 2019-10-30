@@ -7,12 +7,10 @@ RUN set -x \
         && apt-get update \
         && apt-get install -y --no-install-recommends --no-install-suggests \
                 libicu-dev zlib1g-dev libzip-dev libpng-dev librabbitmq-dev default-mysql-client unzip git ssh nginx \
-                jpegoptim optipng pngquant gifsicle libmagickwand-dev \
         && docker-php-ext-configure intl \
         && docker-php-ext-configure calendar \
         && docker-php-ext-install intl zip gd bcmath sockets pdo_mysql calendar opcache mysqli \
-        && pecl install -o -f redis && rm -rf /tmp/pear \
-        && pecl install mongodb amqp imagick && docker-php-ext-enable mongodb amqp imagick redis \
+        && pecl install mongodb amqp && docker-php-ext-enable mongodb amqp \
         && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
         && composer global require hirak/prestissimo brianium/paratest \
         && mkdir ~/.ssh/ && echo "Host bitbucket.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config \
